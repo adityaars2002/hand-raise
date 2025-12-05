@@ -42,7 +42,7 @@ fun CameraScreen() {
         }
     }
 
-    // UI
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -103,13 +103,12 @@ fun CameraScreen() {
         )
     }
 
-    // TTS Trigger
     LaunchedEffect(handRaised) {
         if (handRaised) {
             val currentTime = System.currentTimeMillis()
             if (currentTime - lastSpeakTime > 3000) {
                 lastSpeakTime = currentTime
-                delay(300) // slight delay for clarity
+                delay(300)
                 tts?.speak("Hand detected, how can I help you?", TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
